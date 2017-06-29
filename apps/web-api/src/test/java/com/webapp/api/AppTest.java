@@ -1,4 +1,4 @@
-package com.web.api;
+package com.webapp.api;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
