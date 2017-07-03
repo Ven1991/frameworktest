@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.webapp.app.dao.UserMapper" >
+
+  <resultMap id="BaseResultMap" type="com.webapp.app.vo.User" >
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="type_id" property="typeId" jdbcType="INTEGER" />
+    <result column="order" property="order" jdbcType="INTEGER" />
+    <result column="purview" property="purview" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="paypassword" property="paypassword" jdbcType="VARCHAR" />
+    <result column="islock" property="islock" jdbcType="INTEGER" />
+    <result column="invite_userid" property="inviteUserid" jdbcType="VARCHAR" />
+    <result column="invite_money" property="inviteMoney" jdbcType="VARCHAR" />
+    <result column="real_status" property="realStatus" jdbcType="VARCHAR" />
+    <result column="card_type" property="cardType" jdbcType="VARCHAR" />
+    <result column="card_id" property="cardId" jdbcType="VARCHAR" />
+    <result column="card_pic1" property="cardPic1" jdbcType="VARCHAR" />
+    <result column="card_pic2" property="cardPic2" jdbcType="VARCHAR" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="realname" property="realname" jdbcType="VARCHAR" />
+    <result column="integral" property="integral" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="avatar_status" property="avatarStatus" jdbcType="INTEGER" />
+    <result column="email_status" property="emailStatus" jdbcType="VARCHAR" />
+    <result column="phone_status" property="phoneStatus" jdbcType="VARCHAR" />
+    <result column="video_status" property="videoStatus" jdbcType="INTEGER" />
+    <result column="scene_status" property="sceneStatus" jdbcType="INTEGER" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="litpic" property="litpic" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="wangwang" property="wangwang" jdbcType="VARCHAR" />
+    <result column="question" property="question" jdbcType="VARCHAR" />
+    <result column="answer" property="answer" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="logintime" property="logintime" jdbcType="INTEGER" />
+    <result column="addtime" property="addtime" jdbcType="VARCHAR" />
+    <result column="addip" property="addip" jdbcType="VARCHAR" />
+    <result column="uptime" property="uptime" jdbcType="VARCHAR" />
+    <result column="upip" property="upip" jdbcType="VARCHAR" />
+    <result column="lasttime" property="lasttime" jdbcType="VARCHAR" />
+    <result column="lastip" property="lastip" jdbcType="VARCHAR" />
+    <result column="is_phone" property="isPhone" jdbcType="INTEGER" />
+    <result column="memberLevel" property="memberlevel" jdbcType="INTEGER" />
+    <result column="serial_id" property="serialId" jdbcType="VARCHAR" />
+    <result column="serial_status" property="serialStatus" jdbcType="VARCHAR" />
+    <result column="hongbao" property="hongbao" jdbcType="VARCHAR" />
+    <result column="trust_trxId" property="trustTrxid" jdbcType="VARCHAR" />
+    <result column="trust_usrId" property="trustUsrid" jdbcType="VARCHAR" />
+    <result column="trust_UsrCustId" property="trustUsrcustid" jdbcType="VARCHAR" />
+    <result column="user_level" property="userLevel" jdbcType="INTEGER" />
+    <result column="audit_Stat" property="auditStat" jdbcType="VARCHAR" />
+    <result column="province_name" property="provinceName" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="sx" property="sx" jdbcType="VARCHAR" />
+    <result column="xz" property="xz" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  
+  <sql id="Base_Column_List" >
+    user_id, type_id, order, purview, username, password, paypassword, islock, invite_userid, 
+    invite_money, real_status, card_type, card_id, card_pic1, card_pic2, nation, realname, 
+    integral, status, avatar_status, email_status, phone_status, video_status, scene_status, 
+    email, sex, litpic, tel, phone, qq, wangwang, question, answer, birthday, province, 
+    city, area, address, logintime, addtime, addip, uptime, upip, lasttime, lastip, is_phone, 
+    memberLevel, serial_id, serial_status, hongbao, trust_trxId, trust_usrId, trust_UsrCustId, 
+    user_level, audit_Stat, province_name, age, sx, xz
+  </sql>
+  
+  <sql id="Blob_Column_List" >
+    remind, privacy
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.test.mybatis.vo.UserWithBLOBs" >
+    insert into user (user_id, type_id, order, 
+      purview, username, password, 
+      paypassword, islock, invite_userid, 
+      invite_money, real_status, card_type, 
+      card_id, card_pic1, card_pic2, 
+      nation, realname, integral, 
+      status, avatar_status, email_status, 
+      phone_status, video_status, scene_status, 
+      email, sex, litpic, 
+      tel, phone, qq, wangwang, 
+      question, answer, birthday, 
+      province, city, area, 
+      address, logintime, addtime, 
+      addip, uptime, upip, 
+      lasttime, lastip, is_phone, 
+      memberLevel, serial_id, serial_status, 
+      hongbao, trust_trxId, trust_usrId, 
+      trust_UsrCustId, user_level, audit_Stat, 
+      province_name, age, sx, 
+      xz, remind, privacy
+      )
+    values (#{userId,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER}, #{order,jdbcType=INTEGER}, 
+      #{purview,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{paypassword,jdbcType=VARCHAR}, #{islock,jdbcType=INTEGER}, #{inviteUserid,jdbcType=VARCHAR}, 
+      #{inviteMoney,jdbcType=VARCHAR}, #{realStatus,jdbcType=VARCHAR}, #{cardType,jdbcType=VARCHAR}, 
+      #{cardId,jdbcType=VARCHAR}, #{cardPic1,jdbcType=VARCHAR}, #{cardPic2,jdbcType=VARCHAR}, 
+      #{nation,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{integral,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{avatarStatus,jdbcType=INTEGER}, #{emailStatus,jdbcType=VARCHAR}, 
+      #{phoneStatus,jdbcType=VARCHAR}, #{videoStatus,jdbcType=INTEGER}, #{sceneStatus,jdbcType=INTEGER}, 
+      #{email,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{litpic,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wangwang,jdbcType=VARCHAR}, 
+      #{question,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{logintime,jdbcType=INTEGER}, #{addtime,jdbcType=VARCHAR}, 
+      #{addip,jdbcType=VARCHAR}, #{uptime,jdbcType=VARCHAR}, #{upip,jdbcType=VARCHAR}, 
+      #{lasttime,jdbcType=VARCHAR}, #{lastip,jdbcType=VARCHAR}, #{isPhone,jdbcType=INTEGER}, 
+      #{memberlevel,jdbcType=INTEGER}, #{serialId,jdbcType=VARCHAR}, #{serialStatus,jdbcType=VARCHAR}, 
+      #{hongbao,jdbcType=VARCHAR}, #{trustTrxid,jdbcType=VARCHAR}, #{trustUsrid,jdbcType=VARCHAR}, 
+      #{trustUsrcustid,jdbcType=VARCHAR}, #{userLevel,jdbcType=INTEGER}, #{auditStat,jdbcType=VARCHAR}, 
+      #{provinceName,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{sx,jdbcType=VARCHAR}, 
+      #{xz,jdbcType=VARCHAR}, #{remind,jdbcType=LONGVARCHAR}, #{privacy,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.test.mybatis.vo.UserWithBLOBs" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="order != null" >
+        order,
+      </if>
+      <if test="purview != null" >
+        purview,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="paypassword != null" >
+        paypassword,
+      </if>
+      <if test="islock != null" >
+        islock,
+      </if>
+      <if test="inviteUserid != null" >
+        invite_userid,
+      </if>
+      <if test="inviteMoney != null" >
+        invite_money,
+      </if>
+      <if test="realStatus != null" >
+        real_status,
+      </if>
+      <if test="cardType != null" >
+        card_type,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="cardPic1 != null" >
+        card_pic1,
+      </if>
+      <if test="cardPic2 != null" >
+        card_pic2,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+      <if test="realname != null" >
+        realname,
+      </if>
+      <if test="integral != null" >
+        integral,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="avatarStatus != null" >
+        avatar_status,
+      </if>
+      <if test="emailStatus != null" >
+        email_status,
+      </if>
+      <if test="phoneStatus != null" >
+        phone_status,
+      </if>
+      <if test="videoStatus != null" >
+        video_status,
+      </if>
+      <if test="sceneStatus != null" >
+        scene_status,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="litpic != null" >
+        litpic,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="wangwang != null" >
+        wangwang,
+      </if>
+      <if test="question != null" >
+        question,
+      </if>
+      <if test="answer != null" >
+        answer,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="logintime != null" >
+        logintime,
+      </if>
+      <if test="addtime != null" >
+        addtime,
+      </if>
+      <if test="addip != null" >
+        addip,
+      </if>
+      <if test="uptime != null" >
+        uptime,
+      </if>
+      <if test="upip != null" >
+        upip,
+      </if>
+      <if test="lasttime != null" >
+        lasttime,
+      </if>
+      <if test="lastip != null" >
+        lastip,
+      </if>
+      <if test="isPhone != null" >
+        is_phone,
+      </if>
+      <if test="memberlevel != null" >
+        memberLevel,
+      </if>
+      <if test="serialId != null" >
+        serial_id,
+      </if>
+      <if test="serialStatus != null" >
+        serial_status,
+      </if>
+      <if test="hongbao != null" >
+        hongbao,
+      </if>
+      <if test="trustTrxid != null" >
+        trust_trxId,
+      </if>
+      <if test="trustUsrid != null" >
+        trust_usrId,
+      </if>
+      <if test="trustUsrcustid != null" >
+        trust_UsrCustId,
+      </if>
+      <if test="userLevel != null" >
+        user_level,
+      </if>
+      <if test="auditStat != null" >
+        audit_Stat,
+      </if>
+      <if test="provinceName != null" >
+        province_name,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="sx != null" >
+        sx,
+      </if>
+      <if test="xz != null" >
+        xz,
+      </if>
+      <if test="remind != null" >
+        remind,
+      </if>
+      <if test="privacy != null" >
+        privacy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="order != null" >
+        #{order,jdbcType=INTEGER},
+      </if>
+      <if test="purview != null" >
+        #{purview,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="paypassword != null" >
+        #{paypassword,jdbcType=VARCHAR},
+      </if>
+      <if test="islock != null" >
+        #{islock,jdbcType=INTEGER},
+      </if>
+      <if test="inviteUserid != null" >
+        #{inviteUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="inviteMoney != null" >
+        #{inviteMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="realStatus != null" >
+        #{realStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null" >
+        #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="cardId != null" >
+        #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPic1 != null" >
+        #{cardPic1,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPic2 != null" >
+        #{cardPic2,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null" >
+        #{integral,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="avatarStatus != null" >
+        #{avatarStatus,jdbcType=INTEGER},
+      </if>
+      <if test="emailStatus != null" >
+        #{emailStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneStatus != null" >
+        #{phoneStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="videoStatus != null" >
+        #{videoStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sceneStatus != null" >
+        #{sceneStatus,jdbcType=INTEGER},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="litpic != null" >
+        #{litpic,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wangwang != null" >
+        #{wangwang,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null" >
+        #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null" >
+        #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="logintime != null" >
+        #{logintime,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null" >
+        #{addtime,jdbcType=VARCHAR},
+      </if>
+      <if test="addip != null" >
+        #{addip,jdbcType=VARCHAR},
+      </if>
+      <if test="uptime != null" >
+        #{uptime,jdbcType=VARCHAR},
+      </if>
+      <if test="upip != null" >
+        #{upip,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttime != null" >
+        #{lasttime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastip != null" >
+        #{lastip,jdbcType=VARCHAR},
+      </if>
+      <if test="isPhone != null" >
+        #{isPhone,jdbcType=INTEGER},
+      </if>
+      <if test="memberlevel != null" >
+        #{memberlevel,jdbcType=INTEGER},
+      </if>
+      <if test="serialId != null" >
+        #{serialId,jdbcType=VARCHAR},
+      </if>
+      <if test="serialStatus != null" >
+        #{serialStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="hongbao != null" >
+        #{hongbao,jdbcType=VARCHAR},
+      </if>
+      <if test="trustTrxid != null" >
+        #{trustTrxid,jdbcType=VARCHAR},
+      </if>
+      <if test="trustUsrid != null" >
+        #{trustUsrid,jdbcType=VARCHAR},
+      </if>
+      <if test="trustUsrcustid != null" >
+        #{trustUsrcustid,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null" >
+        #{userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="auditStat != null" >
+        #{auditStat,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceName != null" >
+        #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="sx != null" >
+        #{sx,jdbcType=VARCHAR},
+      </if>
+      <if test="xz != null" >
+        #{xz,jdbcType=VARCHAR},
+      </if>
+      <if test="remind != null" >
+        #{remind,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="privacy != null" >
+        #{privacy,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.test.mybatis.vo.UserWithBLOBs" >
+    update user
+    <set >
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="order != null" >
+        order = #{order,jdbcType=INTEGER},
+      </if>
+      <if test="purview != null" >
+        purview = #{purview,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="paypassword != null" >
+        paypassword = #{paypassword,jdbcType=VARCHAR},
+      </if>
+      <if test="islock != null" >
+        islock = #{islock,jdbcType=INTEGER},
+      </if>
+      <if test="inviteUserid != null" >
+        invite_userid = #{inviteUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="inviteMoney != null" >
+        invite_money = #{inviteMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="realStatus != null" >
+        real_status = #{realStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null" >
+        card_type = #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="cardId != null" >
+        card_id = #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPic1 != null" >
+        card_pic1 = #{cardPic1,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPic2 != null" >
+        card_pic2 = #{cardPic2,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null" >
+        integral = #{integral,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="avatarStatus != null" >
+        avatar_status = #{avatarStatus,jdbcType=INTEGER},
+      </if>
+      <if test="emailStatus != null" >
+        email_status = #{emailStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneStatus != null" >
+        phone_status = #{phoneStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="videoStatus != null" >
+        video_status = #{videoStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sceneStatus != null" >
+        scene_status = #{sceneStatus,jdbcType=INTEGER},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="litpic != null" >
+        litpic = #{litpic,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wangwang != null" >
+        wangwang = #{wangwang,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null" >
+        question = #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null" >
+        answer = #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="logintime != null" >
+        logintime = #{logintime,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null" >
+        addtime = #{addtime,jdbcType=VARCHAR},
+      </if>
+      <if test="addip != null" >
+        addip = #{addip,jdbcType=VARCHAR},
+      </if>
+      <if test="uptime != null" >
+        uptime = #{uptime,jdbcType=VARCHAR},
+      </if>
+      <if test="upip != null" >
+        upip = #{upip,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttime != null" >
+        lasttime = #{lasttime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastip != null" >
+        lastip = #{lastip,jdbcType=VARCHAR},
+      </if>
+      <if test="isPhone != null" >
+        is_phone = #{isPhone,jdbcType=INTEGER},
+      </if>
+      <if test="memberlevel != null" >
+        memberLevel = #{memberlevel,jdbcType=INTEGER},
+      </if>
+      <if test="serialId != null" >
+        serial_id = #{serialId,jdbcType=VARCHAR},
+      </if>
+      <if test="serialStatus != null" >
+        serial_status = #{serialStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="hongbao != null" >
+        hongbao = #{hongbao,jdbcType=VARCHAR},
+      </if>
+      <if test="trustTrxid != null" >
+        trust_trxId = #{trustTrxid,jdbcType=VARCHAR},
+      </if>
+      <if test="trustUsrid != null" >
+        trust_usrId = #{trustUsrid,jdbcType=VARCHAR},
+      </if>
+      <if test="trustUsrcustid != null" >
+        trust_UsrCustId = #{trustUsrcustid,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null" >
+        user_level = #{userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="auditStat != null" >
+        audit_Stat = #{auditStat,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceName != null" >
+        province_name = #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="sx != null" >
+        sx = #{sx,jdbcType=VARCHAR},
+      </if>
+      <if test="xz != null" >
+        xz = #{xz,jdbcType=VARCHAR},
+      </if>
+      <if test="remind != null" >
+        remind = #{remind,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="privacy != null" >
+        privacy = #{privacy,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.test.mybatis.vo.UserWithBLOBs" >
+    update user
+    set type_id = #{typeId,jdbcType=INTEGER},
+      order = #{order,jdbcType=INTEGER},
+      purview = #{purview,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      paypassword = #{paypassword,jdbcType=VARCHAR},
+      islock = #{islock,jdbcType=INTEGER},
+      invite_userid = #{inviteUserid,jdbcType=VARCHAR},
+      invite_money = #{inviteMoney,jdbcType=VARCHAR},
+      real_status = #{realStatus,jdbcType=VARCHAR},
+      card_type = #{cardType,jdbcType=VARCHAR},
+      card_id = #{cardId,jdbcType=VARCHAR},
+      card_pic1 = #{cardPic1,jdbcType=VARCHAR},
+      card_pic2 = #{cardPic2,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      avatar_status = #{avatarStatus,jdbcType=INTEGER},
+      email_status = #{emailStatus,jdbcType=VARCHAR},
+      phone_status = #{phoneStatus,jdbcType=VARCHAR},
+      video_status = #{videoStatus,jdbcType=INTEGER},
+      scene_status = #{sceneStatus,jdbcType=INTEGER},
+      email = #{email,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      litpic = #{litpic,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      wangwang = #{wangwang,jdbcType=VARCHAR},
+      question = #{question,jdbcType=VARCHAR},
+      answer = #{answer,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      logintime = #{logintime,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=VARCHAR},
+      addip = #{addip,jdbcType=VARCHAR},
+      uptime = #{uptime,jdbcType=VARCHAR},
+      upip = #{upip,jdbcType=VARCHAR},
+      lasttime = #{lasttime,jdbcType=VARCHAR},
+      lastip = #{lastip,jdbcType=VARCHAR},
+      is_phone = #{isPhone,jdbcType=INTEGER},
+      memberLevel = #{memberlevel,jdbcType=INTEGER},
+      serial_id = #{serialId,jdbcType=VARCHAR},
+      serial_status = #{serialStatus,jdbcType=VARCHAR},
+      hongbao = #{hongbao,jdbcType=VARCHAR},
+      trust_trxId = #{trustTrxid,jdbcType=VARCHAR},
+      trust_usrId = #{trustUsrid,jdbcType=VARCHAR},
+      trust_UsrCustId = #{trustUsrcustid,jdbcType=VARCHAR},
+      user_level = #{userLevel,jdbcType=INTEGER},
+      audit_Stat = #{auditStat,jdbcType=VARCHAR},
+      province_name = #{provinceName,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      sx = #{sx,jdbcType=VARCHAR},
+      xz = #{xz,jdbcType=VARCHAR},
+      remind = #{remind,jdbcType=LONGVARCHAR},
+      privacy = #{privacy,jdbcType=LONGVARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterType="com.test.mybatis.vo.User" >
+    update user
+    set type_id = #{typeId,jdbcType=INTEGER},
+      order = #{order,jdbcType=INTEGER},
+      purview = #{purview,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      paypassword = #{paypassword,jdbcType=VARCHAR},
+      islock = #{islock,jdbcType=INTEGER},
+      invite_userid = #{inviteUserid,jdbcType=VARCHAR},
+      invite_money = #{inviteMoney,jdbcType=VARCHAR},
+      real_status = #{realStatus,jdbcType=VARCHAR},
+      card_type = #{cardType,jdbcType=VARCHAR},
+      card_id = #{cardId,jdbcType=VARCHAR},
+      card_pic1 = #{cardPic1,jdbcType=VARCHAR},
+      card_pic2 = #{cardPic2,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      avatar_status = #{avatarStatus,jdbcType=INTEGER},
+      email_status = #{emailStatus,jdbcType=VARCHAR},
+      phone_status = #{phoneStatus,jdbcType=VARCHAR},
+      video_status = #{videoStatus,jdbcType=INTEGER},
+      scene_status = #{sceneStatus,jdbcType=INTEGER},
+      email = #{email,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      litpic = #{litpic,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      wangwang = #{wangwang,jdbcType=VARCHAR},
+      question = #{question,jdbcType=VARCHAR},
+      answer = #{answer,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      logintime = #{logintime,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=VARCHAR},
+      addip = #{addip,jdbcType=VARCHAR},
+      uptime = #{uptime,jdbcType=VARCHAR},
+      upip = #{upip,jdbcType=VARCHAR},
+      lasttime = #{lasttime,jdbcType=VARCHAR},
+      lastip = #{lastip,jdbcType=VARCHAR},
+      is_phone = #{isPhone,jdbcType=INTEGER},
+      memberLevel = #{memberlevel,jdbcType=INTEGER},
+      serial_id = #{serialId,jdbcType=VARCHAR},
+      serial_status = #{serialStatus,jdbcType=VARCHAR},
+      hongbao = #{hongbao,jdbcType=VARCHAR},
+      trust_trxId = #{trustTrxid,jdbcType=VARCHAR},
+      trust_usrId = #{trustUsrid,jdbcType=VARCHAR},
+      trust_UsrCustId = #{trustUsrcustid,jdbcType=VARCHAR},
+      user_level = #{userLevel,jdbcType=INTEGER},
+      audit_Stat = #{auditStat,jdbcType=VARCHAR},
+      province_name = #{provinceName,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      sx = #{sx,jdbcType=VARCHAR},
+      xz = #{xz,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  
+</mapper>
+
+
+
+
+
+
+
