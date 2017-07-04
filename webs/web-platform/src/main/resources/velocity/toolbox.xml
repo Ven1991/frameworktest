@@ -16,7 +16,8 @@
     <scope>application</scope>
     <class>org.apache.velocity.tools.generic.DateTool</class>
 </tool>
-<tool>
+
+<!-- <tool>
      <key>dateTools</key>
      <scope>application</scope>
      <class>com.dept.web.general.util.TimeUtil</class>
@@ -36,7 +37,7 @@
      <key>dateTool</key>
      <scope>application</scope>
      <class>com.dept.web.general.util.DateUtils</class>
-</tool>
+</tool> -->
 
 
 </toolbox>
