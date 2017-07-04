@@ -66,9 +66,9 @@
   
   
   <sql id="Base_Column_List" >
-    user_id, type_id, order, purview, username, password, paypassword, islock, invite_userid, 
+    user_id, type_id, `order`, purview, username, `password`, paypassword, islock, invite_userid, 
     invite_money, real_status, card_type, card_id, card_pic1, card_pic2, nation, realname, 
-    integral, status, avatar_status, email_status, phone_status, video_status, scene_status, 
+    integral, `status`, avatar_status, email_status, phone_status, video_status, scene_status, 
     email, sex, litpic, tel, phone, qq, wangwang, question, answer, birthday, province, 
     city, area, address, logintime, addtime, addip, uptime, upip, lasttime, lastip, is_phone, 
     memberLevel, serial_id, serial_status, hongbao, trust_trxId, trust_usrId, trust_UsrCustId, 
@@ -91,7 +91,7 @@
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
   
-  <insert id="insert" parameterType="com.test.mybatis.vo.UserWithBLOBs" >
+  <insert id="insert" parameterType="com.webapp.app.vo.User" >
     insert into user (user_id, type_id, order, 
       purview, username, password, 
       paypassword, islock, invite_userid, 
@@ -136,7 +136,7 @@
       )
   </insert>
   
-  <insert id="insertSelective" parameterType="com.test.mybatis.vo.UserWithBLOBs" >
+  <insert id="insertSelective" parameterType="com.webapp.app.vo.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -510,7 +510,7 @@
     </trim>
   </insert>
   
-  <update id="updateByPrimaryKeySelective" parameterType="com.test.mybatis.vo.UserWithBLOBs" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.webapp.app.vo.User" >
     update user
     <set >
       <if test="typeId != null" >
@@ -697,7 +697,7 @@
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
   
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.test.mybatis.vo.UserWithBLOBs" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.webapp.app.vo.User" >
     update user
     set type_id = #{typeId,jdbcType=INTEGER},
       order = #{order,jdbcType=INTEGER},
@@ -762,7 +762,7 @@
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
   
-  <update id="updateByPrimaryKey" parameterType="com.test.mybatis.vo.User" >
+  <update id="updateByPrimaryKey" parameterType="com.webapp.app.vo.User" >
     update user
     set type_id = #{typeId,jdbcType=INTEGER},
       order = #{order,jdbcType=INTEGER},

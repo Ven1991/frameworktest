@@ -1,6 +1,7 @@
 package com.webapp.app.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.webapp.app.dao.UserMapper;
@@ -10,7 +11,7 @@ import com.webapp.app.vo.User;
 @Service
 public class UserServiceImpl implements UserService{
 	
-	@Autowired
+	@Resource
 	private UserMapper userMapper;
 	
 	public User selectByPK(Integer userId){
