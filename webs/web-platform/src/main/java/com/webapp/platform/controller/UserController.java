@@ -26,8 +26,7 @@ public class UserController extends BaseController{
 		this.setBean("user", user);
 		
 		
-		
-		return "webview/user/showUser";
+		return "user/showUser";
 	}
 	
 	
