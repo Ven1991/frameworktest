@@ -36,7 +36,7 @@
 	        <dispatcher>FORWARD</dispatcher>
 	        <dispatcher>INCLUDE</dispatcher>
 	        <dispatcher>ERROR</dispatcher>
-	</filter-mapping>
+	</filter-mapping> 
 	
 	<!-- 配置springmvc -->  
     <servlet>  
