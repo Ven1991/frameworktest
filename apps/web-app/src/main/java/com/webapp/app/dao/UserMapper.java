@@ -1,24 +1,29 @@
 package com.webapp.app.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
-import com.webapp.app.vo.User;
+import com.webapp.app.model.User;
+import com.webapp.app.vo.UserVo;
 
 public interface UserMapper {
 	
     int deleteByPrimaryKey(Integer userId);
 
-    int insert(User user);
+    int insert(UserVo user);
 	
-    int insertSelective(User user);
+    int insertSelective(UserVo user);
 
     User selectByPK(@Param("userId") Integer userId);
 
-    int updateByPrimaryKeySelective(User user);
+    int updateByPrimaryKeySelective(UserVo user);
 
-    int updateByPrimaryKeyWithBLOBs(User user);
+    int updateByPrimaryKeyWithBLOBs(UserVo user);
 
-    int updateByPrimaryKey(User user);
+    int updateByPrimaryKey(UserVo user);
+    
+    List<User> selectUserByList();
     
     
 }

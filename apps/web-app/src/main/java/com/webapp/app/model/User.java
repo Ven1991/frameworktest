@@ -1,4 +1,4 @@
-package com.webapp.app.vo;
+package com.webapp.app.model;
 
 public class User {
     private Integer userId;

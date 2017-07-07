@@ -1,6 +1,8 @@
 package com.webapp.app.service;
 
-import com.webapp.app.vo.User;
+import com.github.pagehelper.PageInfo;
+import com.webapp.app.model.User;
+import com.webapp.app.vo.UserVo;
 import com.webapp.framework.core.datasource.DataSource;
 
 public interface UserService {
@@ -10,4 +12,7 @@ public interface UserService {
 	
 	@DataSource("read")
 	public User selectByPK(Integer userId);
+	
+	@DataSource("read")
+	public PageInfo<User> getUserByPage(UserVo userVo);
 }
