@@ -10,9 +10,9 @@ public interface UserService {
 	
 	//@DataSource("write")
 	
-	@DataSource("read")
+	@DataSource("read1")
 	public User selectByPK(Integer userId);
 	
-	@DataSource("read")
+	@DataSource("read2")
 	public PageInfo<User> getUserByPage(UserVo userVo);
 }
