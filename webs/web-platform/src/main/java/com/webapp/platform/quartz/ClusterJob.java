@@ -1,31 +1,32 @@
 package com.webapp.platform.quartz;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.quartz.DisallowConcurrentExecution;
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
+import org.quartz.PersistJobDataAfterExecution;
+import org.springframework.scheduling.quartz.QuartzJobBean;
 
-public class ClusterJob {
-	private static Logger log = LogManager.getLogger(ClusterJob.class);
-	private static boolean isStart = false;
-	    
-    /**
-     * 按金豆发放红包
-     */
-    @Autowired 
-    public void executeTest(){
-        
-        if( isStart == true ){
-        	log.info(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+"集群定时任务开始");
-        	
-        	
-        	log.info(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+"集群定时任务结束");
-        }
-        isStart = true;
+@PersistJobDataAfterExecution
+@DisallowConcurrentExecution// 不允许并发执行
+public class ClusterJob extends QuartzJobBean {
+
+    private static final Logger logger = LogManager.getLogger(ClusterJob.class);
+
+    @Override
+    protected void executeInternal(JobExecutionContext jobexecutioncontext) throws JobExecutionException {
+    	logger.info("开始执行....................");
     }
-	
-	
+
+   /* private ApplicationContext getApplicationContext(final JobExecutionContext jobexecutioncontext) {
+        try {
+            return (ApplicationContext) jobexecutioncontext.getScheduler().getContext().get("applicationContextKey");
+        } catch (SchedulerException e) {
+            logger.error("jobexecutioncontext.getScheduler().getContext() error!", e);
+            throw new RuntimeException(e);
+        }
+    }*/
 
 }

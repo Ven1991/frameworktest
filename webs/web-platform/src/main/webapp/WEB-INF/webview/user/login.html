@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>显示用户信息</title>
+</head>
+<script src="/web-platform/webstatic/js/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" >
+ $(function(){
+    $(".pure-button").click(function(){
+    	var imgObj = $("#cimg");   
+        var url = imgObj.attr("src").split("?")[0];  
+        url += "?" + Math.random();
+        imgObj.attr("src", url);
+        
+       /*  
+       if(index != -1) {  
+            var url = imgObj.attr("src").substring(0,index + 1);  
+            imgObj.src = url + Math.random();  
+        } else {  
+            imgObj.src = imgObj.src + "?" + Math.random();  
+        }   
+       */
+    });	 
+ });
+
+</script>
+<body>
+	<div class="gray convert gap-body pb95">
+		<div class="login_right" style="margin-top: 0px;">
+			<form class="pure-form form signup-form" method="post" action="$weburl/signup.html?type=reg" id="signup-form">
+				<div class="login_field">
+					<label>*用户名：</label> 
+					<input type="text" class="login_input required mb10" data-validators="name"
+						data-options="true" name="username"
+						onkeyup="value=value.replace(/[^A-za-z0-9]+/,'')"
+						placeholder="输入6-16位英文/数字"> 
+						<span class="xtip" id="user-xtip"></span>
+				</div>
+				<div class="login_field">
+					<label>*图形码：</label>
+					<div class="verifyimg-box">
+						<input type="text" id="imgCode" name="imgCode" data-validators="imgCode" value="$!imgCode" style="width: 170px;">
+						<img src="/web-platform/patchca/pcrimg.html" id="cimg" alt="验证码" style="position: absolute; top: 0; right: 45px;width: 80px;height: 45px;"> 
+						<span class="pure-button" style="padding: 0; position: absolute; top: 10px; right: 0px;">刷新</span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
