@@ -44,7 +44,8 @@
     <!-- ClusterCronTriggerBean -->
     <bean id="clusterCronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="jobDetail1" />
-        <property name="cronExpression" value="0/10 * * * * ? *" /> <!-- 每10秒触发一次 -->
+        <!-- 每10秒触发一次 -->
+        <property name="cronExpression" value="* * 0/2 * * ? *" /> 
     </bean>
 
 

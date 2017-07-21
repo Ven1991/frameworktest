@@ -187,12 +187,6 @@
     <dependent-module archiveName="quartz-jobs-2.2.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/quartz-scheduler/quartz-jobs/2.2.1/quartz-jobs-2.2.1.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="jedis-2.8.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/redis/clients/jedis/2.8.1/jedis-2.8.1.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="commons-pool2-2.4.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
     <dependent-module archiveName="oscache-2.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/opensymphony/oscache/2.4/oscache-2.4.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
@@ -266,6 +260,33 @@
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="patchca-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/github/bingoohuang/patchca/0.0.1/patchca-0.0.1.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="spring-data-redis-1.8.4.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/springframework/data/spring-data-redis/1.8.4.RELEASE/spring-data-redis-1.8.4.RELEASE.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="spring-data-keyvalue-1.2.4.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/springframework/data/spring-data-keyvalue/1.2.4.RELEASE/spring-data-keyvalue-1.2.4.RELEASE.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="spring-data-commons-1.13.4.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/springframework/data/spring-data-commons/1.13.4.RELEASE/spring-data-commons-1.13.4.RELEASE.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="jcl-over-slf4j-1.7.25.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="spring-oxm-4.3.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-oxm/4.3.9.RELEASE/spring-oxm-4.3.9.RELEASE.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="jedis-2.9.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/redis/clients/jedis/2.9.0/jedis-2.9.0.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="commons-pool2-2.4.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="spring-session-data-redis-1.3.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/springframework/session/spring-session-data-redis/1.3.1.RELEASE/spring-session-data-redis-1.3.1.RELEASE.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="spring-session-1.3.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/springframework/session/spring-session/1.3.1.RELEASE/spring-session-1.3.1.RELEASE.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
