@@ -17,7 +17,7 @@ public class ClusterJob extends QuartzJobBean {
 
     @Override
     protected void executeInternal(JobExecutionContext jobexecutioncontext) throws JobExecutionException {
-    	logger.info("开始执行....................");
+    	//logger.info("开始执行....................");
     }
 
    /* private ApplicationContext getApplicationContext(final JobExecutionContext jobexecutioncontext) {
